@@ -110,10 +110,10 @@ public class DemoProcessor extends CommandProcessor {
 			} else if (cmd[0].equals("ansi")) {
 				if (cmd.length > 1) {
 					if (cmd[1].equals("on")) {
-						getConsole().setUseANSIColorCodes(true);
+						getConsole().useANSIColorCodes(true);
 						outputSystem("\n\nANSI Color Codes are now on.");
 					} else if (cmd[1].equals("off")) {
-						getConsole().setUseANSIColorCodes(false);
+						getConsole().useANSIColorCodes(false);
 						outputSystem("\n\nANSI Color Codes are now off.");
 					} else
 						outputSystem(
@@ -203,7 +203,7 @@ public class DemoProcessor extends CommandProcessor {
 	 */
 	@Override
 	public void output(String s) {
-		if (getConsole().isUseANSIColorCodes())
+		if (getConsole().isUsingANSIColorCodes())
 			super.output(convertToANSIColors(s));
 		else
 			super.output(s);

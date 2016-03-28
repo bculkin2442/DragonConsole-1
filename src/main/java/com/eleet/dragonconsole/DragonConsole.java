@@ -639,7 +639,7 @@ public class DragonConsole extends JPanel
 	 *            The boolean value determining the method on how to
 	 *            control the Vertical JScrollBar.
 	 */
-	public void setKeepScrollBarMax(boolean alwaysScrollMax) {
+	public void setKeepScrollBarMaxed(boolean alwaysScrollMax) {
 		this.alwaysKeepScrollBarMaxed = alwaysScrollMax;
 	}
 
@@ -834,12 +834,12 @@ public class DragonConsole extends JPanel
 	 * unable to use the default DragonConsole Color Codes (although they
 	 * will still be processed out of any String passed through append().
 	 * 
-	 * @param useANSIColorCodes
+	 * @param usANSIColorCodes
 	 *            <code>true</code> to use ANSIStyle Color Codes, or
 	 *            <code>false</code> to use DragonConsole Color Codes.
 	 */
-	public void setUseANSIColorCodes(boolean useANSIColorCodes) {
-		this.useANSIColorCodes = useANSIColorCodes;
+	public void useANSIColorCodes(boolean usANSIColorCodes) {
+		this.useANSIColorCodes = usANSIColorCodes;
 	}
 
 	/**
@@ -849,7 +849,7 @@ public class DragonConsole extends JPanel
 	 * @return <code>true</code> if the Console is actively processing and
 	 *         using ANSI color codes instead of DCCCs.
 	 */
-	public boolean isUseANSIColorCodes() {
+	public boolean isUsingANSIColorCodes() {
 		return this.useANSIColorCodes;
 	}
 
@@ -992,7 +992,7 @@ public class DragonConsole extends JPanel
 	 * @param systemColor
 	 *            The new color for default system messages.
 	 */
-	public void setSystmeColor(String systemColor) {
+	public void setSystemColor(String systemColor) {
 		this.systemColor = systemColor;
 	}
 
