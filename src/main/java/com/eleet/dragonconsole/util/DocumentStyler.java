@@ -86,6 +86,7 @@ public class DocumentStyler {
      * @param documentToUpdate The StyledDocument containing the text to be
      *  changed.
      * @param newFont The new Font to show in the StyledDocument.
+     * @return The document that has been updated
      */
     public static StyledDocument changeFont(StyledDocument documentToUpdate, Font newFont) {
         SimpleAttributeSet newFontStyle = new SimpleAttributeSet();

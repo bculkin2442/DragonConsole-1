@@ -45,10 +45,10 @@ public class InputString {
 
     /**
      * Appends the given String to the end of contents of this InputString.
-     * @param s The String to append.
+     * @param strang The String to append.
      */
-    public void append(String s) {
-        this.s += s;
+    public void append(String strang) {
+        this.s += strang;
         Debug.print("\"" + this.s + "\" - APPEND");
     }
 
@@ -57,13 +57,13 @@ public class InputString {
      * location.
      * @param location The location in the InputString to place the given
      *  String.
-     * @param s The String to insert at the given location.
+     * @param strang The String to insert at the given location.
      */
-    public void insert(int location, String s) {
+    public void insert(int location, String strang) {
         if (location <= this.s.length()) {
             String before = this.s.substring(0, location);
             String after = this.s.substring(location);
-            this.set(before + s + after);
+            this.set(before + strang + after);
             Debug.print("\"" + this.s + "\" - INSERT");
         }
     }
@@ -122,15 +122,15 @@ public class InputString {
      * last character of the InputString is a blank space.
      * @param location The location of the InputString in which the String
      *  needs to be inserted.
-     * @param s The String to insert into this InputString.
+     * @param strang The String to insert into this InputString.
      * @return Returns true if the character was inserted into the InputString
      *  or false if it was not.
      */
-    public boolean rangeInsert(int location, String s) {
+    public boolean rangeInsert(int location, String strang) {
         if (location < this.s.length() && endIsEmpty()) {
             String before = this.s.substring(0, location);
             String after = this.s.substring(location, this.s.length() - 1);
-            this.set(before + s + after);
+            this.set(before + strang + after);
 
             Debug.print("\"" + this.s + "\" - RANGE INSERT");
             return true;
@@ -144,18 +144,18 @@ public class InputString {
      * @param location The beginning location for the substring that will be
      *  replaced by the given String.
      * @param length The length of the substring that will be replaced.
-     * @param s The String to replace the substring of this InputString with.
+     * @param strang The String to replace the substring of this InputString with.
      */
-    public void replace(int location, int length, String s) {
+	public void replace(int location, int length, String strang) {
         if (location < this.s.length() && (location + length) <= this.s.length()) {
             int end = location + length;
             String before = this.s.substring(0, location);
             String after = this.s.substring(end);
-            set(before + s + after);
+            set(before + strang + after);
 
             Debug.print("\"" + this.s + "\" - REPLACE");
         } else
-            append(s);
+            append(strang);
     }
 
     /**
