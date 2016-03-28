@@ -497,7 +497,7 @@ public class DragonConsole extends JPanel implements KeyListener,
         if (!useInlineInput)
             consolePrompt.setDefaultColor(defaultColor);
         clearConsole();
-        printDefault();
+       // printDefault();
     }
 
     /** 
@@ -523,7 +523,7 @@ public class DragonConsole extends JPanel implements KeyListener,
         if (!useInlineInput)
             consolePrompt.setDefaultColor(defaultColor);
         clearConsole();
-        printDefault();
+        //printDefault();
     }
 
     /** 
