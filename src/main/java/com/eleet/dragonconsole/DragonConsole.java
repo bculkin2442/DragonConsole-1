@@ -104,8 +104,7 @@ import java.awt.datatransfer.DataFlavor;;
 public class DragonConsole extends JPanel
 		implements KeyListener, CaretListener, AdjustmentListener {
 	// Version ID for serialization
-	private static final long		serialVersionUID			=
-			-832109129380783042L;
+	private static final long		serialVersionUID			= -832109129380783042L;
 
 	// Version variables
 	/**
@@ -144,38 +143,37 @@ public class DragonConsole extends JPanel
 	/**
 	 * The Intense Color Orange, as used as a Default TextColor
 	 */
-	public static final Color		INTENSE_ORANGE				=
-			Color.ORANGE;
+	public static final Color		INTENSE_ORANGE				= Color.ORANGE;
 
 	/**
 	 * The Color Orange, as used as a Default TextColor
 	 */
-	public static final Color		ORANGE						=
-			Color.ORANGE.darker();
+	public static final Color		ORANGE						= Color.ORANGE
+			.darker();
 
 	/**
 	 * The Intense Color Purple, as used as a Default TextColor
 	 */
-	public static final Color		INTENSE_PURPLE				=
-			new Color(128, 0, 255);
+	public static final Color		INTENSE_PURPLE				= new Color(
+			128, 0, 255);
 
 	/**
 	 * The Color Purple, as used as a Default TextColor
 	 */
-	public static final Color		PURPLE						=
-			INTENSE_PURPLE.darker();
+	public static final Color		PURPLE						= INTENSE_PURPLE
+			.darker();
 
 	/**
 	 * The Intense Color Gold, as used as a Default TextColor
 	 */
-	public static final Color		INTENSE_GOLD				=
-			new Color(241, 234, 139);
+	public static final Color		INTENSE_GOLD				= new Color(
+			241, 234, 139);
 
 	/**
 	 * The Color Gold, as used as a Default TextColor
 	 */
-	public static final Color		GOLD						=
-			INTENSE_GOLD.darker();
+	public static final Color		GOLD						= INTENSE_GOLD
+			.darker();
 
 	// GUI
 	/**
@@ -206,15 +204,13 @@ public class DragonConsole extends JPanel
 	/**
 	 * The Width of the JPanel, default value is <code>DEFAULT_WIDTH</code>
 	 */
-	private int						cWidth						=
-			DEFAULT_WIDTH;
+	private int						cWidth						= DEFAULT_WIDTH;
 
 	/**
 	 * The Height of the JPanel, default value is
 	 * <code>DEFAULT_HEIGHT</code>
 	 */
-	private int						cHeight						=
-			DEFAULT_HEIGHT;
+	private int						cHeight						= DEFAULT_HEIGHT;
 
 	// Console
 	/**
@@ -352,38 +348,34 @@ public class DragonConsole extends JPanel
 	/**
 	 * Default Console/Input Area background color
 	 */
-	private Color					defaultBackground			=
-			Color.BLACK;
+	private Color					defaultBackground			= Color.BLACK;
 
 	/**
 	 * Default Console/Input Area foreground color
 	 */
-	private Color					defaultForeground			=
-			Color.GRAY.brighter();
+	private Color					defaultForeground			= Color.GRAY
+			.brighter();
 
 	/**
 	 * Default Console/Input Area Caret color
 	 */
-	private Color					defaultCaret				=
-			Color.GRAY.brighter();
+	private Color					defaultCaret				= Color.GRAY
+			.brighter();
 
 	/**
 	 * Default Mac Style Console/Input Area background color.
 	 */
-	private Color					defaultMacBackground		=
-			Color.WHITE;
+	private Color					defaultMacBackground		= Color.WHITE;
 
 	/**
 	 * Default Mac Style Console/Input Area foreground color.
 	 */
-	private Color					defaultMacForeground		=
-			Color.BLACK;
+	private Color					defaultMacForeground		= Color.BLACK;
 
 	/**
 	 * Default Mac Style Console/Input Area Caret color.
 	 */
-	private Color					defaultMacCaret				=
-			Color.BLACK;
+	private Color					defaultMacCaret				= Color.BLACK;
 
 	// ANSIStyle Support
 	/**
@@ -406,8 +398,7 @@ public class DragonConsole extends JPanel
 	 * <code>currentStyle</code> is changed. This was added to make the
 	 * DCCCs function the same way as ANSI Color Codes do.
 	 */
-	private String					currentStyle				=
-			defaultColor;
+	private String					currentStyle				= defaultColor;
 
 	/**
 	 * Default Constructor uses all the default values.
@@ -709,15 +700,14 @@ public class DragonConsole extends JPanel
 		consolePrompt = new PromptPanel(">> ", defaultColor);
 
 		// Setting the Font properly for the Prompt
-		consoleFont =
-				FileProcessor.getConsoleFont().deriveFont(Font.PLAIN, 14f);
+		consoleFont = FileProcessor.getConsoleFont().deriveFont(Font.PLAIN,
+				14f);
 		consolePrompt.setPromptFont(consoleFont);
 
 		if (useInlineInput) {
 			consolePane = new JTextPane() {
 				// Version ID for serialization
-				private static final long serialVersionUID =
-						-4009592062270383925L;
+				private static final long serialVersionUID = -4009592062270383925L;
 
 				@Override
 				public void paste() {
@@ -813,9 +803,10 @@ public class DragonConsole extends JPanel
 		setOutputStyles();
 		setDefaultStyle();
 
+		// Uncomment this to print the intro text
 		// Print the introduction here, since changing styles no longer
 		// reprints the intro
-		printDefault();
+		// printDefault();
 	}
 
 	/**
@@ -874,7 +865,8 @@ public class DragonConsole extends JPanel
 	 * (logo_w is for White backgrounds). if
 	 * <code>printDefaultMessage</code> is set to <code>true</code>.
 	 */
-	private void printDefault() {
+	@SuppressWarnings("unused")
+	private void printDefaulst() {
 		if (printDefaultMessage) {
 			try {
 				String color = "b";
@@ -1369,11 +1361,9 @@ public class DragonConsole extends JPanel
 					print(processed);
 					processed = "";
 
-					ANSIStyle =
-							ANSI.getANSIAttribute(ANSIStyle,
-									outputToProcess.substring(i,
-											outputToProcess.indexOf('m', i)
-													+ 1),
+					ANSIStyle = ANSI.getANSIAttribute(ANSIStyle,
+							outputToProcess.substring(i,
+									outputToProcess.indexOf('m', i) + 1),
 							consoleStyledDocument.getStyle(defaultColor));
 
 					i = outputToProcess.indexOf('m', i);
@@ -1450,11 +1440,11 @@ public class DragonConsole extends JPanel
 			} else if (code.contains("-")) {
 				if (!(code.equals("--"))) {
 					if (code.charAt(0) == '-')
-						newStyle =
-								"" + oldStyle.charAt(0) + code.charAt(1);
+						newStyle = "" + oldStyle.charAt(0)
+								+ code.charAt(1);
 					else
-						newStyle =
-								"" + code.charAt(0) + oldStyle.charAt(1);
+						newStyle = "" + code.charAt(0)
+								+ oldStyle.charAt(1);
 				}
 			} else
 				newStyle = code;
@@ -1734,8 +1724,11 @@ public class DragonConsole extends JPanel
 			}
 		}
 
-		if (e.getKeyCode() == KeyEvent.VK_TAB)
+		if (e.getKeyCode() == KeyEvent.VK_TAB) {
+			// TODO implement some sort of auto-complete maybe?
+
 			e.consume();
+		}
 
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			if (!ignoreInput) {
@@ -1772,7 +1765,7 @@ public class DragonConsole extends JPanel
 			}
 		}
 
-		if ((e.getKeyCode() == KeyEvent.VK_RIGHT) && e.isShiftDown()) {
+		if ((e.getKeyCode() == KeyEvent.VK_UP)) {
 			e.consume();
 
 			if (!useInlineInput
@@ -1786,7 +1779,7 @@ public class DragonConsole extends JPanel
 			}
 		}
 
-		if ((e.getKeyCode() == KeyEvent.VK_LEFT) && (e.isShiftDown())) {
+		if ((e.getKeyCode() == KeyEvent.VK_DOWN)) {
 			e.consume();
 
 			if (!useInlineInput
