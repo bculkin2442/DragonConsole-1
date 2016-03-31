@@ -53,8 +53,8 @@ public class CommandProcessor {
 	}
 
 	/**
-	 * This method is called from the DragonConsoles setCommandProcessor()
-	 * method and SHOULT NOT be called by the programmer or any other class
+	 * This method is called from the DragonConsole's setCommandProcessor()
+	 * method and SHOULD NOT be called by the programmer or any other class
 	 * (excluding possible extensions of DragonConsole).
 	 * 
 	 * @param consle

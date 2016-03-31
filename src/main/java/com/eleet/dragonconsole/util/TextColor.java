@@ -157,8 +157,8 @@ public class TextColor implements Comparable<Object> {
 		} else if (cName
 				.equals("com.eleet.dragonconsole.util.TextColor")) {
 			Character c = new Character(charCode);
-			Character otherC =
-					new Character(((TextColor) o).getCharCode());
+			Character otherC = new Character(
+					((TextColor) o).getCharCode());
 
 			return c.compareTo(otherC);
 		}
@@ -183,6 +183,10 @@ public class TextColor implements Comparable<Object> {
 	 */
 	@Override
 	public boolean equals(Object o) {
+		if (o == null) {
+			return false;
+		}
+
 		String cName = o.getClass().getName();
 
 		if (cName.equals("com.eleet.dragonconsole.util.TextColor")) {
