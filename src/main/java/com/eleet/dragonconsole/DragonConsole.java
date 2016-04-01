@@ -1862,4 +1862,18 @@ public class DragonConsole extends JPanel
 		} else
 			ignoreAdjustment = false;
 	}
+
+	/**
+	 * @return the errorColor
+	 */
+	public String getErrorColor() {
+		return errorColor;
+	}
+
+	/**
+	 * @return the defaultColor
+	 */
+	public String getDefaultColor() {
+		return defaultColor;
+	}
 }
