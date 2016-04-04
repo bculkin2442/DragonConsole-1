@@ -157,8 +157,8 @@ public class TextColor implements Comparable<Object> {
 		} else if (cName
 				.equals("com.eleet.dragonconsole.util.TextColor")) {
 			Character c = new Character(charCode);
-			Character otherC = new Character(
-					((TextColor) o).getCharCode());
+			Character otherC =
+					new Character(((TextColor) o).getCharCode());
 
 			return c.compareTo(otherC);
 		}
@@ -218,6 +218,13 @@ public class TextColor implements Comparable<Object> {
 		return "Code: " + ((charCode == '-') ? "TEST_TextColor" : charCode)
 				+ " = "
 				+ ((color == null) ? "TEST_TextColor" : color.toString());
+	}
+
+	// This doesn't work off hand, but we can't create hashcodes that match
+	// what equals says
+	@Override
+	public int hashCode() {
+		return super.hashCode();
 	}
 
 	/**
