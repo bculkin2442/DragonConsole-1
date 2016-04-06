@@ -335,44 +335,42 @@ public class InputController extends DocumentFilter {
 		if (newInputStyle.equals("%i;")) {
 			rangeEnd = -1;
 			return false;
-		} else {
-			String inputStyle = newInputStyle.substring(2); // Chop off the
-															// "%i"
-			inputStyle = inputStyle.substring(0, inputStyle.length() - 1); // Chop
-																			// off
-																			// the
-																			// ";"
+		}
+
+		String inputStyle = newInputStyle.substring(2); // Chop off the
+														// "%i"
+		inputStyle = inputStyle.substring(0, inputStyle.length() - 1); // Chop
+																		// off
+																		// the
+																		// ";"
+
+		if (inputStyle.length() > 0) {
+			if (inputStyle.charAt(inputStyle.length() - 1) == '+'
+					|| inputStyle.charAt(inputStyle.length() - 1) == '-') {
+				char tempProtect = inputStyle
+						.charAt(inputStyle.length() - 1);
+				inputStyle = inputStyle.substring(0,
+						inputStyle.length() - 1);
+
+				if (tempProtect == '+')
+					protect = true;
+			}
 
 			if (inputStyle.length() > 0) {
-				if (inputStyle.charAt(inputStyle.length() - 1) == '+'
-						|| inputStyle
-								.charAt(inputStyle.length() - 1) == '-') {
-					char tempProtect =
-							inputStyle.charAt(inputStyle.length() - 1);
-					inputStyle = inputStyle.substring(0,
-							inputStyle.length() - 1);
+				rangeEnd = Integer.parseInt(inputStyle);
 
-					if (tempProtect == '+')
-						protect = true;
-				}
+				input.set(getInputRangeString());
 
-				if (inputStyle.length() > 0) {
-					rangeEnd = Integer.parseInt(inputStyle);
-
-					input.set(getInputRangeString());
-
-					return true;
-				} else {
-					rangeEnd = -1;
-
-					return false;
-				}
-
-			} else {
-				rangeEnd = -1;
-				return false;
+				return true;
 			}
+
+			rangeEnd = -1;
+
+			return false;
 		}
+
+		rangeEnd = -1;
+		return false;
 	}
 
 	/**
@@ -385,8 +383,7 @@ public class InputController extends DocumentFilter {
 	public int getInputRangeStart() {
 		if (isReceivingInput)
 			return rangeStart;
-		else
-			return -1;
+		return -1;
 	}
 
 	/**
@@ -468,8 +465,9 @@ public class InputController extends DocumentFilter {
 				inputRangeString += " ";
 
 			return inputRangeString;
-		} else
-			return "";
+		}
+
+		return "";
 	}
 
 	/**
@@ -818,8 +816,7 @@ public class InputController extends DocumentFilter {
 				} else {
 					if (this.protectd == protct)
 						return true;
-					else
-						return false;
+					return false;
 				}
 			}
 

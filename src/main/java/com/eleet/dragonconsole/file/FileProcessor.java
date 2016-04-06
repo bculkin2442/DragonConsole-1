@@ -165,7 +165,8 @@ public class FileProcessor {
 					+ "Using default font\n" + ffex.getMessage() + "\n",
 					"Error Caught", javax.swing.JOptionPane.ERROR_MESSAGE);
 
-		} catch (IOException ioex) {
+		} catch (@SuppressWarnings("unused") IOException ioex) {
+			// We don't care about specifics
 			System.err.println(
 					"ERROR: Could not load font file. Falling back to default font");
 		}

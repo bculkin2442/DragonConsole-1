@@ -157,8 +157,8 @@ public class TextColor implements Comparable<Object> {
 		} else if (cName
 				.equals("com.eleet.dragonconsole.util.TextColor")) {
 			Character c = new Character(charCode);
-			Character otherC =
-					new Character(((TextColor) o).getCharCode());
+			Character otherC = new Character(
+					((TextColor) o).getCharCode());
 
 			return c.compareTo(otherC);
 		}
@@ -193,9 +193,8 @@ public class TextColor implements Comparable<Object> {
 			TextColor otc = (TextColor) o;
 
 			if (otc.getColor() == null || color == null)
-				return ((charCode == otc.getCharCode()));
-			else
-				return ((color.equals(otc.getColor())));
+				return charCode == otc.getCharCode();
+			return color.equals(otc.getColor());
 
 		} else if (cName.equals("java.lang.Character")) {
 			Character oc = (Character) o;

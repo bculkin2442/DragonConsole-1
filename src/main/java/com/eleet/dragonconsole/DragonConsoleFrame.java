@@ -94,7 +94,7 @@ public class DragonConsoleFrame extends JFrame {
 	public DragonConsoleFrame(DragonConsole console) {
 		this.console = console;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("DragonConsole " + console.getVersion());
+		this.setTitle("DragonConsole " + DragonConsole.getVersion());
 		this.setResizable(false);
 
 		this.add(console);

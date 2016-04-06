@@ -173,8 +173,9 @@ public class DemoProcessor extends CommandProcessor {
 	 * view.
 	 */
 	public void outputHelp() {
+		getConsole();
 		String help = "\n\n&c--- &X-Dragon&x-Console &c-"
-				+ getConsole().getVersion() + " ---------------\n"
+				+ DragonConsole.getVersion() + " ---------------\n"
 				+ "   &w-INFO &o-View information on certain topics.\n"
 				+ "   &w-   EX: INFO COLORS\n"
 				+ "   LICENSE &o-View the License for DragonConsole or it's"

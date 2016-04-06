@@ -66,8 +66,8 @@ public class ANSI {
 	/**
 	 * A dark blue color
 	 */
-	public static final Color	BLUE			=
-			new Color(66, 66, 255).darker();
+	public static final Color	BLUE			= new Color(66, 66, 255)
+			.darker();
 	/**
 	 * A dark magenta color
 	 */
@@ -114,8 +114,8 @@ public class ANSI {
 	 */
 	public static final Color	INTENSE_WHITE	= Color.WHITE;
 
-	private static final Color	normal[]		=
-			{ BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE };
+	private static final Color	normal[]		= { BLACK, RED, GREEN,
+			YELLOW, BLUE, MAGENTA, CYAN, WHITE };
 	private static final Color	bright[]		= { INTENSE_BLACK,
 			INTENSE_RED, INTENSE_GREEN, INTENSE_YELLOW, INTENSE_BLUE,
 			INTENSE_MAGENTA, INTENSE_CYAN, INTENSE_WHITE };
@@ -287,10 +287,11 @@ public class ANSI {
 			if (code.charAt(code.length() - 1) == ';')
 				code = code.substring(0, code.length() - 1);
 
-			if (code.equals(ESCAPE + "[0;"))
+			if (code.equals(ESCAPE + "[0;")) {
 				return ESCAPE + "[39;49m";
-			else
-				return code + "m";
+			}
+
+			return code + "m";
 		}
 
 		return ESCAPE + "[39;49m";
@@ -455,10 +456,10 @@ public class ANSI {
 		for (int i = 0; i < buffer.length(); i++) {
 			if (buffer.charAt(i) == '\033') {
 				if (buffer.indexOf("m", i) < buffer.length()) {
-					String code =
-							buffer.substring(i, buffer.indexOf("m", i)); // The
-																			// Color
-																			// Code
+					String code = buffer.substring(i,
+							buffer.indexOf("m", i)); // The
+														// Color
+														// Code
 					int end = i + code.length() + 1;
 					code = getDCCodeFromANSICode(code, colors,
 							colorCodeChar, defaultStyle);
@@ -491,52 +492,45 @@ public class ANSI {
 			case 40:
 				if (brighter)
 					return INTENSE_BLACK;
-				else
-					return BLACK;
+				return BLACK;
 			case 31:
 			case 41:
 				if (brighter)
 					return INTENSE_RED;
-				else
-					return RED;
+				return RED;
 			case 32:
 			case 42:
 				if (brighter)
 					return INTENSE_GREEN;
-				else
-					return GREEN;
+				return GREEN;
 			case 33:
 			case 43:
 				if (brighter)
 					return INTENSE_YELLOW;
-				else
-					return YELLOW;
+				return YELLOW;
 			case 34:
 			case 44:
 				if (brighter)
 					return INTENSE_BLUE;
-				else
-					return BLUE;
+				return BLUE;
 			case 35:
 			case 45:
 				if (brighter)
 					return INTENSE_MAGENTA;
-				else
-					return MAGENTA;
+				return MAGENTA;
 			case 36:
 			case 46:
 				if (brighter)
 					return INTENSE_CYAN;
-				else
-					return CYAN;
+				return CYAN;
 			case 37:
 			case 47:
 				if (brighter)
 					return INTENSE_WHITE;
-				else
-					return WHITE;
+				return WHITE;
 			default:
-				return null;
+				throw new IllegalArgumentException(
+						"Color not recognized.");
 		}
 	}
 }

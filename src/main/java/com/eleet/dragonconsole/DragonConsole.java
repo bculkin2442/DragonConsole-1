@@ -968,7 +968,7 @@ public class DragonConsole extends JPanel
 	 * 
 	 * @return Returns the version string for use with anything.
 	 */
-	public String getVersion() {
+	public static String getVersion() {
 		return "v" + VERSION + "." + SUB_VER + "." + BUG_FIX + VER_TAG;
 	}
 
@@ -1225,10 +1225,12 @@ public class DragonConsole extends JPanel
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		// We don't care
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
+		// We don't care
 	}
 
 	/**
